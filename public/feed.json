@@ -1,11 +1,11 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "Your Name - Research & Engineering",
+    "title": "Yang Li — Agent Reliability & Infrastructure Architect",
     "home_page_url": "http://localhost:3000",
     "feed_url": "http://localhost:3000/feed.json",
-    "description": "Personal website for research, engineering projects, and thought leadership.",
+    "description": "Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.",
     "author": {
-        "name": "Your Name",
+        "name": "Yang Li",
         "url": "https://twitter.com/yourhandle"
     },
     "items": [
@@ -17,7 +17,7 @@
             "summary": "An introduction to this website and what you can expect to find here. Exploring the intersection of AI, game development, and philosophical inquiry.",
             "date_modified": "2024-12-26T00:00:00.000Z",
             "author": {
-                "name": "Your Name",
+                "name": "Yang Li",
                 "url": "https://twitter.com/yourhandle"
             }
         },
@@ -29,7 +29,7 @@
             "summary": "A comprehensive guide to designing and implementing multi-agent systems that can scale to handle complex, real-world tasks.",
             "date_modified": "2024-12-20T00:00:00.000Z",
             "author": {
-                "name": "Your Name",
+                "name": "Yang Li",
                 "url": "https://twitter.com/yourhandle"
             }
         }

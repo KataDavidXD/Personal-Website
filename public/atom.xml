@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://localhost:3000</id>
-    <title>Your Name - Research &amp; Engineering</title>
-    <updated>2025-12-29T11:23:29.974Z</updated>
+    <title>Yang Li — Agent Reliability &amp; Infrastructure Architect</title>
+    <updated>2025-12-29T15:03:58.737Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
-        <name>Your Name</name>
-        <email>your@email.com</email>
+        <name>Yang Li</name>
+        <email>yli9919@hku.hk</email>
         <uri>https://twitter.com/yourhandle</uri>
     </author>
     <link rel="alternate" href="http://localhost:3000"/>
     <link rel="self" href="http://localhost:3000/atom.xml"/>
-    <subtitle>Personal website for research, engineering projects, and thought leadership.</subtitle>
+    <subtitle>Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.</subtitle>
     <icon>http://localhost:3000/favicon.ico</icon>
-    <rights>All rights reserved 2025, Your Name</rights>
+    <rights>All rights reserved 2025, Yang Li</rights>
     <entry>
         <title type="html"><![CDATA[Hello World - Welcome to My Digital Garden]]></title>
         <id>http://localhost:3000/blog/2024/hello-world</id>
@@ -57,8 +57,8 @@ I'll be publishing regularly about the projects I'm working on and the ideas I'm
 Let's build something interesting together.
 ]]></content>
         <author>
-            <name>Your Name</name>
-            <email>your@email.com</email>
+            <name>Yang Li</name>
+            <email>yli9919@hku.hk</email>
             <uri>https://twitter.com/yourhandle</uri>
         </author>
     </entry>
@@ -138,8 +138,8 @@ The key is defining clear interfaces that allow agents to work together while re
 In the next post, I'll dive into specific patterns for agent memory and state management. Stay tuned.
 ]]></content>
         <author>
-            <name>Your Name</name>
-            <email>your@email.com</email>
+            <name>Yang Li</name>
+            <email>yli9919@hku.hk</email>
             <uri>https://twitter.com/yourhandle</uri>
         </author>
     </entry>

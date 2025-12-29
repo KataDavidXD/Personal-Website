@@ -1,66 +1,60 @@
 export const siteConfig = {
-  name: 'Your Name',
-  title: 'Your Name - Research & Engineering',
-  description: 'Personal website for research, engineering projects, and thought leadership.',
+  name: 'Yang Li',
+  title: 'Yang Li — Agent Reliability & Infrastructure Architect',
+  description: 'Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   author: {
-    name: 'Your Name',
-    email: 'your@email.com',
+    name: 'Yang Li',
+    email: 'yli9919@hku.hk',
     twitter: '@yourhandle',
-    github: 'yourusername',
-    linkedin: 'yourprofile',
+    github: 'KataDavidXD',
+    linkedin: 'yangli9919',
   },
   links: {
-    github: 'https://github.com/yourusername',
+    github: 'https://github.com/KataDavidXD',
     twitter: 'https://twitter.com/yourhandle',
-    linkedin: 'https://linkedin.com/in/yourprofile',
+    linkedin: 'https://linkedin.com/in/yangli9919',
   },
 } as const;
 
 export const pillars = [
   {
-    id: 'agent-infra',
-    title: 'Agent Infrastructure',
-    description: 'Building the foundation for autonomous AI systems, multi-agent architectures, and intelligent automation.',
-    href: '/agent-infra',
-    icon: '🤖',
-    color: 'from-blue-500 to-cyan-500',
+    id: 'agent-git',
+    title: 'AgentGit',
+    description: 'The version control layer for LLM agents. Enabling State Commit, Rollback, and Branching for complex agentic workflows.',
+    href: 'https://github.com/KataDavidXD/Agent-Git',
+    icon: '🌳',
+    color: 'from-emerald-500 to-teal-500',
   },
   {
-    id: 'game-engine',
-    title: 'Game Engine',
-    description: 'Exploring game development, rendering systems, physics engines, and real-time simulation.',
-    href: '/game-engine',
-    icon: '🎮',
-    color: 'from-purple-500 to-pink-500',
+    id: 'wtb',
+    title: 'WTB (Workflow Test Bench)',
+    description: 'Failure-mode-driven evaluation and regression testing. Partnered with leading ToB HQs to ensure production reliability.',
+    href: '/projects/wtb',
+    icon: '🧪',
+    color: 'from-blue-600 to-indigo-600',
   },
   {
-    id: 'thinking',
-    title: 'Thinking',
-    description: 'Reflections on philosophy, strategy, decision-making, and the intersection of technology and humanity.',
-    href: '/thinking',
-    icon: '💭',
-    color: 'from-amber-500 to-orange-500',
+    id: 'mas-sim',
+    title: 'MAS Simulation',
+    description: 'Controlled simulation environments for studying agent interaction, uncertainty, and system-level emergent behavior.',
+    href: '/projects/mas-sim',
+    icon: '🛰️',
+    color: 'from-purple-600 to-pink-600',
   },
 ] as const;
 
 export const categories = {
   'agent-infra': {
     name: 'Agent Infrastructure',
-    description: 'LLM systems, multi-agent architectures, and AI infrastructure',
+    description: 'Reliability engineering, versioning, and state management for agents.',
   },
-  'game-engine': {
-    name: 'Game Engine',
-    description: 'Game development, rendering, and real-time systems',
+  'simulation': {
+    name: 'Simulation',
+    description: 'Large-scale multi-agent interaction and failure testing.',
   },
-  thinking: {
+  'thinking': {
     name: 'Thinking',
-    description: 'Philosophy, strategy, and reflections',
+    description: 'Strategic reflections on the Agentic Era.',
   },
 } as const;
-
-
-
-
-
-

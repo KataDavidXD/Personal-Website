@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Your Name - Research &amp; Engineering</title>
+        <title>Yang Li — Agent Reliability &amp; Infrastructure Architect</title>
         <link>http://localhost:3000</link>
-        <description>Personal website for research, engineering projects, and thought leadership.</description>
-        <lastBuildDate>Mon, 29 Dec 2025 11:23:29 GMT</lastBuildDate>
+        <description>Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.</description>
+        <lastBuildDate>Mon, 29 Dec 2025 15:03:58 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
-        <copyright>All rights reserved 2025, Your Name</copyright>
+        <copyright>All rights reserved 2025, Yang Li</copyright>
         <item>
             <title><![CDATA[Hello World - Welcome to My Digital Garden]]></title>
             <link>http://localhost:3000/blog/2024/hello-world</link>
@@ -51,7 +51,7 @@ I'll be publishing regularly about the projects I'm working on and the ideas I'm
 
 Let's build something interesting together.
 ]]></content:encoded>
-            <author>your@email.com (Your Name)</author>
+            <author>yli9919@hku.hk (Yang Li)</author>
         </item>
         <item>
             <title><![CDATA[Building Scalable Multi-Agent Systems - A Practical Guide]]></title>
@@ -128,7 +128,7 @@ The key is defining clear interfaces that allow agents to work together while re
 
 In the next post, I'll dive into specific patterns for agent memory and state management. Stay tuned.
 ]]></content:encoded>
-            <author>your@email.com (Your Name)</author>
+            <author>yli9919@hku.hk (Yang Li)</author>
         </item>
     </channel>
 </rss>
