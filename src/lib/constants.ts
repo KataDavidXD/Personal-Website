@@ -41,7 +41,7 @@ export const pillars = [
     id: 'wtb',
     title: 'Workflow TestBench',
     summary: 'Production reliability for agents',
-    description: 'Batch testing thousands of workflows in parallel, real-time monitoring, end-to-end production pipeline with quality gates, and expert knowledge extraction from agent traces.',
+    description: 'Batch testing workflows in parallel, real-time monitoring, end-to-end production pipeline with quality gates, and expert knowledge extraction from agent traces.',
     href: '/projects/wtb-engine',
   },
   {
