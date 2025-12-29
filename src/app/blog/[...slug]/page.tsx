@@ -7,6 +7,7 @@ import { Comments } from '@/components/mdx/Comments';
 import { ShareButtons } from '@/components/layout/ShareButtons';
 import { ReadingProgress } from '@/components/layout/ReadingProgress';
 import { formatDate } from '@/lib/utils';
+import { siteConfig } from '@/lib/constants';
 import { Calendar, Clock, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
@@ -37,6 +38,9 @@ export async function generateMetadata({
     return {};
   }
 
+  // Since we moved it to API to avoid catch-all conflict
+  const dynamicOgUrl = `/api/og/blog/${resolvedParams.slug.join('/')}`;
+
   return {
     title: post.title,
     description: post.description,
@@ -45,13 +49,13 @@ export async function generateMetadata({
       description: post.description,
       type: 'article',
       url: post.url,
-      images: post.image ? [{ url: post.image }] : undefined,
+      images: [{ url: dynamicOgUrl }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.image ? [post.image] : undefined,
+      images: [dynamicOgUrl],
     },
   };
 }

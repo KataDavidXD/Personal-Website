@@ -3,16 +3,12 @@ import { allBlogPosts } from 'contentlayer/generated';
 
 export const runtime = 'edge';
 
-export const alt = 'About Yang Li';
-export const size = {
-  width: 1200,
-  height: 630,
-};
-
-export const contentType = 'image/png';
-
-export default async function Image({ params }: { params: { slug: string[] } }) {
-  const slug = params.slug.join('/');
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ slug: string[] }> }
+) {
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join('/');
   const post = allBlogPosts.find((p) => p.slug === slug);
 
   if (!post) {
@@ -98,7 +94,8 @@ export default async function Image({ params }: { params: { slug: string[] } }) 
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   );
 }

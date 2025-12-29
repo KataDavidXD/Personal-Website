@@ -87,9 +87,9 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
-        {process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_SCRIPT_URL && (
+        {process.env.UMAMI_WEBSITE_ID && (
           <Script
-            src={process.env.UMAMI_SCRIPT_URL}
+            src={process.env.UMAMI_SCRIPT_URL || 'https://cloud.umami.is/script.js'}
             data-website-id={process.env.UMAMI_WEBSITE_ID}
             strategy="afterInteractive"
           />
