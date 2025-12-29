@@ -30,7 +30,7 @@ function generateRss() {
       id: `${siteConfig.url}${post.url}`,
       link: `${siteConfig.url}${post.url}`,
       description: post.description,
-      content: post.body.html,
+      content: post.body.raw,
       author: [
         {
           name: siteConfig.author.name,
