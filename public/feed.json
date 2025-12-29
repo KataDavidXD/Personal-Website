@@ -1,0 +1,37 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Your Name - Research & Engineering",
+    "home_page_url": "http://localhost:3000",
+    "feed_url": "http://localhost:3000/feed.json",
+    "description": "Personal website for research, engineering projects, and thought leadership.",
+    "author": {
+        "name": "Your Name",
+        "url": "https://twitter.com/yourhandle"
+    },
+    "items": [
+        {
+            "id": "http://localhost:3000/blog/2024/hello-world",
+            "content_html": "\nWelcome to my corner of the internet.\n\nThis is where I share my thoughts, projects, and learnings at the intersection of **artificial intelligence**, **game development**, and **philosophical inquiry**.\n\n## What You'll Find Here\n\n### 🤖 Agent Infrastructure\n\nDeep dives into building robust multi-agent systems, LLM architectures, and the infrastructure that powers intelligent automation. From theoretical foundations to production-ready implementations.\n\n### 🎮 Game Engine Development\n\nExplorations in real-time rendering, physics simulation, and game engine architecture. Building interactive experiences from first principles.\n\n### 💭 Thinking\n\nReflections on technology's role in society, decision-making frameworks, and the philosophical questions that arise when building intelligent systems.\n\n## Why a Personal Website?\n\nIn an age of social media and algorithmic feeds, a personal website is a statement of ownership. It's a place where ideas can breathe, evolve, and be discovered on their own terms.\n\nHere, I can:\n\n- **Write long-form content** that wouldn't fit in a tweet thread\n- **Update and refine** ideas as my understanding grows\n- **Build a searchable archive** of my work\n- **Own my content** without platform dependencies\n\n## What's Next\n\nI'll be publishing regularly about the projects I'm working on and the ideas I'm exploring. If that sounds interesting, consider [subscribing to the newsletter](/newsletter) or following along on [Twitter](https://twitter.com/yourhandle).\n\nLet's build something interesting together.\n",
+            "url": "http://localhost:3000/blog/2024/hello-world",
+            "title": "Hello World - Welcome to My Digital Garden",
+            "summary": "An introduction to this website and what you can expect to find here. Exploring the intersection of AI, game development, and philosophical inquiry.",
+            "date_modified": "2024-12-26T00:00:00.000Z",
+            "author": {
+                "name": "Your Name",
+                "url": "https://twitter.com/yourhandle"
+            }
+        },
+        {
+            "id": "http://localhost:3000/blog/2024/building-multi-agent-systems",
+            "content_html": "\nMulti-agent systems (MAS) are becoming increasingly important as we push the boundaries of what AI can accomplish. In this post, I'll share practical insights from building production-grade multi-agent systems.\n\n## The Problem with Single Agents\n\nTraditional LLM applications often follow a simple pattern: prompt → completion → response. This works well for straightforward tasks but breaks down when facing:\n\n- **Complex reasoning** requiring multiple perspectives\n- **Long-running tasks** that need coordination\n- **Specialized knowledge** across different domains\n- **Dynamic environments** that change during execution\n\n## Multi-Agent Architecture Patterns\n\n### 1. Hierarchical Agents\n\n```\n          ┌─────────────┐\n          │ Orchestrator │\n          └──────┬──────┘\n                 │\n     ┌───────────┼───────────┐\n     │           │           │\n     ▼           ▼           ▼\n ┌───────┐  ┌───────┐  ┌───────┐\n │Agent 1│  │Agent 2│  │Agent 3│\n └───────┘  └───────┘  └───────┘\n```\n\nA central orchestrator delegates tasks to specialized agents. Good for well-defined workflows.\n\n### 2. Peer-to-Peer Agents\n\nAgents communicate directly with each other without central coordination. Better for emergent behavior but harder to debug.\n\n### 3. Blackboard Architecture\n\nAgents share a common workspace (blackboard) where they read and write information. Great for complex problem-solving.\n\n## Key Design Principles\n\n1. **Clear Role Definition**: Each agent should have a well-defined purpose\n2. **Minimal Communication**: Reduce inter-agent messages to essential information\n3. **Graceful Degradation**: System should handle agent failures\n4. **Observable State**: Make agent states and decisions transparent\n\n## Implementation Tips\n\n```python\nfrom typing import Protocol, Any\n\nclass Agent(Protocol):\n    \"\"\"Base protocol for all agents\"\"\"\n    \n    async def process(self, task: dict) -> dict:\n        \"\"\"Process a task and return result\"\"\"\n        ...\n    \n    async def collaborate(self, message: dict) -> dict:\n        \"\"\"Handle messages from other agents\"\"\"\n        ...\n```\n\nThe key is defining clear interfaces that allow agents to work together while remaining independent.\n\n## What's Next\n\nIn the next post, I'll dive into specific patterns for agent memory and state management. Stay tuned.\n",
+            "url": "http://localhost:3000/blog/2024/building-multi-agent-systems",
+            "title": "Building Scalable Multi-Agent Systems - A Practical Guide",
+            "summary": "A comprehensive guide to designing and implementing multi-agent systems that can scale to handle complex, real-world tasks.",
+            "date_modified": "2024-12-20T00:00:00.000Z",
+            "author": {
+                "name": "Your Name",
+                "url": "https://twitter.com/yourhandle"
+            }
+        }
+    ]
+}

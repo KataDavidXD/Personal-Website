@@ -128,6 +128,10 @@ export const Page = defineDocumentType(() => ({
       type: 'string',
       resolve: (doc) => doc._raw.flattenedPath.replace('pages/', ''),
     },
+    url: {
+      type: 'string',
+      resolve: (doc) => `/${doc._raw.flattenedPath.replace('pages/', '')}`,
+    },
   },
 }));
 
