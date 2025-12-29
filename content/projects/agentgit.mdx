@@ -1,0 +1,84 @@
+---
+title: AgentGit
+description: A framework for building version-controlled, reproducible multi-agent systems with built-in memory and state management.
+status: active
+startDate: 2024-06-01
+stack:
+  - Python
+  - LangChain
+  - Redis
+  - PostgreSQL
+  - Docker
+github: https://github.com/yourusername/agentgit
+featured: true
+order: 1
+---
+
+## Overview
+
+AgentGit is a framework for building multi-agent systems with first-class support for versioning, reproducibility, and state management.
+
+## The Problem
+
+When building multi-agent systems, we often face challenges with:
+
+- **State Management**: Agents need to remember context across interactions
+- **Reproducibility**: Hard to recreate specific agent behaviors for debugging
+- **Version Control**: Agents evolve, but tracking changes is difficult
+- **Collaboration**: Multiple agents need to share and sync state
+
+## The Solution
+
+AgentGit treats agent state like code鈥攙ersioned, branched, and mergeable.
+
+### Key Features
+
+- **Git-like State Management**: Branch, merge, and rollback agent states
+- **Built-in Memory**: Persistent memory with automatic summarization
+- **Checkpoint System**: Save and restore agent configurations
+- **Event Sourcing**: Complete audit trail of all agent actions
+
+## Architecture
+
+```
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+鈹?             AgentGit Core              鈹?
+鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹?
+鈹? 鈹?Memory  鈹? 鈹? State  鈹? 鈹? Event  鈹? 鈹?
+鈹? 鈹? Layer  鈹? 鈹? Store  鈹? 鈹? Log    鈹? 鈹?
+鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹?
+鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+鈹?             Storage Layer              鈹?
+鈹?    (Redis / PostgreSQL / S3)           鈹?
+鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+```
+
+## Quick Start
+
+```python
+from agentgit import Agent, Memory, StateStore
+
+# Initialize agent with versioned state
+agent = Agent(
+    name="researcher",
+    memory=Memory(backend="redis"),
+    state=StateStore(backend="postgres")
+)
+
+# Create a checkpoint
+checkpoint = agent.checkpoint("initial-state")
+
+# Run agent tasks
+result = await agent.run("Analyze this dataset...")
+
+# Rollback if needed
+agent.restore(checkpoint)
+```
+
+## Roadmap
+
+- [ ] Multi-agent synchronization
+- [ ] Distributed state management
+- [ ] Web dashboard for monitoring
+- [ ] Integration with popular LLM frameworks

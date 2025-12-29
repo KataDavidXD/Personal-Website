@@ -1,0 +1,82 @@
+---
+title: WTB Engine
+description: A custom game engine built from scratch, focusing on real-time rendering and physics simulation.
+status: active
+startDate: 2024-03-01
+stack:
+  - C++
+  - Vulkan
+  - GLSL
+  - ImGui
+  - EnTT
+github: https://github.com/yourusername/wtb-engine
+featured: true
+order: 2
+---
+
+## Overview
+
+WTB Engine is a custom game engine I'm building from scratch to learn the fundamentals of real-time graphics and game systems.
+
+## Why Build a Game Engine?
+
+There are plenty of excellent game engines available (Unity, Unreal, Godot). So why build another one?
+
+1. **Deep Understanding**: You can't truly understand something until you've built it
+2. **Custom Requirements**: Specific needs that existing engines don't address well
+3. **Learning**: The best way to learn graphics programming and systems design
+4. **Fun**: It's genuinely enjoyable to build from first principles
+
+## Features
+
+### Rendering System
+
+- Vulkan-based renderer with modern GPU features
+- Physically-based rendering (PBR) pipeline
+- Deferred rendering with G-buffer
+- Shadow mapping (cascaded shadow maps)
+- Post-processing effects (bloom, SSAO, tone mapping)
+
+### Entity Component System
+
+Using EnTT for a data-oriented approach:
+
+```cpp
+// Create entities
+auto entity = registry.create();
+
+// Add components
+registry.emplace<Transform>(entity, position, rotation, scale);
+registry.emplace<MeshRenderer>(entity, mesh, material);
+registry.emplace<RigidBody>(entity, mass, inertia);
+
+// Systems process entities with matching components
+for (auto [entity, transform, rigidbody] : 
+     registry.view<Transform, RigidBody>().each()) {
+    // Physics update
+}
+```
+
+### Editor
+
+Built with ImGui for rapid iteration:
+
+- Scene hierarchy view
+- Component inspector
+- Asset browser
+- Real-time shader editing
+- Performance profiler
+
+## Screenshots
+
+*Coming soon*
+
+## Progress
+
+- [x] Window management and input
+- [x] Vulkan renderer initialization
+- [x] Basic mesh rendering
+- [x] Material system
+- [ ] Physics integration
+- [ ] Audio system
+- [ ] Scripting layer

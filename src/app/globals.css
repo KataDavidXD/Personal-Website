@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color System - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --surface: 0 0% 100%;
+    --surface-secondary: 220 14% 96%;
+    
+    --text-primary: 222 47% 11%;
+    --text-secondary: 215 16% 47%;
+    --text-heading: 222 47% 11%;
+    --text-link: 221 83% 53%;
+    --text-code: 0 0% 9%;
+    
+    --border: 220 13% 91%;
+    --ring: 221 83% 53%;
+    
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    /* Color System - Dark Mode */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    
+    --surface: 222 47% 7%;
+    --surface-secondary: 217 33% 12%;
+    
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 65%;
+    --text-heading: 0 0% 100%;
+    --text-link: 217 91% 70%;
+    --text-code: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --ring: 217 91% 70%;
+    
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 4%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-accent/20 text-foreground;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-narrow {
+    @apply mx-auto max-w-3xl px-4 sm:px-6;
+  }
+  
+  .container-wide {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Prose Overrides */
+  .prose-custom {
+    @apply prose prose-neutral dark:prose-invert max-w-none;
+    @apply prose-headings:font-display prose-headings:font-semibold;
+    @apply prose-a:text-accent prose-a:no-underline hover:prose-a:underline;
+    @apply prose-code:rounded prose-code:bg-surface-secondary prose-code:px-1.5 prose-code:py-0.5;
+    @apply prose-pre:bg-surface-secondary prose-pre:border prose-pre:border-border;
+    @apply prose-img:rounded-lg prose-img:shadow-md;
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent via-blue-500 to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Focus Ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Code Block Styles */
+[data-rehype-pretty-code-fragment] {
+  @apply relative;
+}
+
+[data-rehype-pretty-code-fragment] code {
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+
+[data-rehype-pretty-code-fragment] .line {
+  @apply border-l-2 border-transparent px-4 py-0.5;
+}
+
+[data-rehype-pretty-code-fragment] .line--highlighted {
+  @apply border-l-accent bg-accent/10;
+}
+
+[data-rehype-pretty-code-fragment] .word--highlighted {
+  @apply rounded bg-accent/20 p-1;
+}
+
+[data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-neutral-500;
+}
+
+/* KaTeX math styling */
+.katex-display {
+  @apply overflow-x-auto py-4;
+}
