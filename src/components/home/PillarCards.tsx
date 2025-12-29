@@ -1,47 +1,37 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { pillars } from '@/lib/constants';
-import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 export function PillarCards() {
   return (
-    <section className="bg-surface-secondary/30 py-24">
-      <div className="container-wide">
-        <div className="mb-16 max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Core Infrastructure Focus
-          </h2>
-          <p className="mt-4 text-lg text-foreground/70">
-            Engineering the reliability layer between raw LLMs and production multi-agent systems.
-          </p>
-        </div>
+    <section className="py-16 border-t border-border/40">
+      <div className="container-narrow">
+        <h2 className="mb-10 text-sm font-bold uppercase tracking-wider text-foreground/40">
+          Core Focus
+        </h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="group relative block h-full overflow-hidden rounded-2xl border border-border/60 bg-surface p-8 transition-all hover:border-accent/40 hover:shadow-xl">
-                <div className="mb-4 text-4xl">{pillar.icon}</div>
-                <h3 className="text-xl font-bold">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/60">
+        <div className="flex flex-col gap-12">
+          {pillars.map((pillar) => (
+            <div key={pillar.id} className="group">
+              <Link href={pillar.href} className="block">
+                <div className="flex items-baseline justify-between">
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-medium text-foreground group-hover:underline decoration-1 underline-offset-4">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm text-foreground/50">
+                      {pillar.summary}
+                    </p>
+                  </div>
+                  <ArrowUpRight size={16} className="shrink-0 text-foreground/20 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground/60" />
+                </div>
+                <p className="mt-3 text-base leading-relaxed text-foreground/70 max-w-2xl">
                   {pillar.description}
                 </p>
-                <div className="mt-6">
-                  <a 
-                    href={pillar.href} 
-                    className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-accent hover:opacity-80"
-                  >
-                    Deep Dive <ExternalLink size={12} className="ml-1" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

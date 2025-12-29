@@ -1,93 +1,87 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { siteConfig } from '@/lib/constants';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border/40">
-      <div className="container-wide py-20 sm:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-12">
-          {/* Text Content */}
-          <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="mb-6 inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent">
-                <span className="mr-2">🚀</span>
-                Incoming PhD @ HKU AIBE Lab
-              </div>
-
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                Yang Li — Agent <br />
-                <span className="gradient-text">Infrastructure Architect</span>
+    <section className="relative pt-24 pb-16">
+      <div className="container-narrow">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_200px] md:gap-16 items-start">
+          
+          {/* Left Column: Narrative */}
+          <div className="flex flex-col space-y-8">
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                Yang Li
               </h1>
+              <p className="text-xl font-medium text-foreground/60">
+                Agent Infrastructure Architect
+              </p>
+            </div>
 
-              <div className="mt-8 space-y-4 text-lg text-foreground/70 sm:text-xl">
-                <p>
-                  Technical Lead / DRI for <strong>Agent Reliability & Infrastructure</strong>. 
-                  Building the systems that make LLM workflows auditable, replayable, and production-ready.
-                </p>
-                
-                <div className="flex flex-col gap-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    <span>Working with <strong>Prof. Ye Luo</strong> at HKU AIBE Lab</span>
-                    <a href="https://camo.hku.hk/research-labs/research-labs-lab-for-ai-agents-in-business-and-economics/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline inline-flex items-center">
-                      <ExternalLink size={14} className="ml-1" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className="space-y-4 text-base leading-relaxed text-foreground/80">
+              <p>
+                Building the <strong className="text-foreground">reliability layer</strong> for multi-agent systems. 
+                My work bridges the gap between raw LLM capabilities and production-grade infrastructure.
+              </p>
+              
+              <p className="text-foreground/60">
+                I focus on making LLM workflows <span className="text-foreground">auditable</span>, <span className="text-foreground">replayable</span>, and <span className="text-foreground">production-ready</span>—through 
+                state versioning, systematic testing, and agent-aware simulation environments.
+              </p>
+            </div>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  href="/blog"
-                  className="group inline-flex items-center rounded-lg bg-accent px-6 py-3 font-medium text-accent-foreground transition-all hover:bg-accent/90"
-                >
-                  Reliability Insights
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <div className="flex items-center gap-2">
-                  <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-border p-3 hover:bg-surface-secondary transition-colors" aria-label="GitHub">
-                    <Github size={20} />
-                  </a>
-                  <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-border p-3 hover:bg-surface-secondary transition-colors" aria-label="LinkedIn">
-                    <Linkedin size={20} />
-                  </a>
-                  <a href={`mailto:${siteConfig.author.email}`} className="rounded-lg border border-border p-3 hover:bg-surface-secondary transition-colors" aria-label="Email">
-                    <Mail size={20} />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+            <div className="flex flex-col gap-2 py-2 text-sm text-foreground/70 border-l-2 border-foreground/10 pl-4">
+              <p>
+                Incoming PhD @ <strong className="font-medium text-foreground">HKU AIBE Lab</strong>
+              </p>
+              <p>
+                Working with <a href="https://camo.hku.hk/research-labs/research-labs-lab-for-ai-agents-in-business-and-economics/" className="font-medium text-foreground hover:underline decoration-1 underline-offset-4">Prof. Ye Luo</a>
+              </p>
+            </div>
 
-          {/* Profile Image (Silicon Valley Headshot Style) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative lg:col-span-5 flex justify-center lg:justify-end"
-          >
-            <div className="relative h-[320px] w-[320px] sm:h-[400px] sm:w-[400px]">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/20 to-purple-500/20 blur-2xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-2xl border-2 border-border/50 bg-surface shadow-2xl">
-                <Image
-                  src="/selfies/main.jpg"
-                  alt="Yang Li"
-                  fill
-                  className="object-cover transition-all duration-500"
-                  priority
-                />
+            <div className="pt-4 flex items-center gap-6">
+              <Link href="/blog" className="group flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
+                <span>Read my notes</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+              <Link href="/projects" className="group flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
+                <span>View projects</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+              
+              <div className="h-4 w-[1px] bg-border/60" />
+              
+              <div className="flex items-center gap-3">
+                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-foreground transition-colors" aria-label="GitHub">
+                  <Github size={18} />
+                </a>
+                <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-foreground transition-colors" aria-label="LinkedIn">
+                  <Linkedin size={18} />
+                </a>
+                <a href={`mailto:${siteConfig.author.email}`} className="text-foreground/40 hover:text-foreground transition-colors" aria-label="Email">
+                  <Mail size={18} />
+                </a>
               </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Right Column: Avatar */}
+          <div className="flex flex-col gap-6 md:items-end">
+            <div className="relative h-36 w-36 overflow-hidden rounded-2xl border border-border/50 shadow-sm md:h-44 md:w-44">
+              <Image
+                src="/selfies/main.jpg"
+                alt="Yang Li"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 144px, 176px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

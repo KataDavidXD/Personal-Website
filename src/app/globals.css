@@ -6,13 +6,13 @@
   :root {
     /* Color System - Light Mode */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 220 10% 10%; /* Slightly softer black */
     
     --surface: 0 0% 100%;
-    --surface-secondary: 220 14% 96%;
+    --surface-secondary: 220 14% 97%;
     
-    --text-primary: 222 47% 11%;
-    --text-secondary: 215 16% 47%;
+    --text-primary: 220 10% 10%;
+    --text-secondary: 220 10% 40%;
     --text-heading: 222 47% 11%;
     --text-link: 221 83% 53%;
     --text-code: 0 0% 9%;
@@ -84,14 +84,14 @@
     @apply prose-img:rounded-lg prose-img:shadow-md;
   }
   
-  /* Gradient Text */
+  /* Gradient Text - Disabled for 'Thinking Person' vibe, mapped to normal text or accent */
   .gradient-text {
-    @apply bg-gradient-to-r from-accent via-blue-500 to-purple-500 bg-clip-text text-transparent;
+    @apply text-foreground font-semibold;
   }
   
-  /* Card Hover Effect */
+  /* Card Hover Effect - Minimalist */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-colors duration-200 hover:border-accent/40 hover:bg-accent/5;
   }
   
   /* Focus Ring */

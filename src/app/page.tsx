@@ -2,7 +2,6 @@ import { Hero } from '@/components/home/Hero';
 import { PillarCards } from '@/components/home/PillarCards';
 import { FeaturedPosts } from '@/components/home/FeaturedPosts';
 import { FeaturedProjects } from '@/components/home/FeaturedProjects';
-import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { allBlogPosts, allProjects } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 
@@ -23,7 +22,6 @@ export default function HomePage() {
       <PillarCards />
       <FeaturedPosts posts={posts} />
       <FeaturedProjects projects={projects} />
-      <NewsletterSection />
     </>
   );
 }

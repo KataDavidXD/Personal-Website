@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Languages } from 'lucide-react';
 import { useTheme } from '@/components/providers/ThemeProvider';
 import { Search } from '@/components/layout/Search';
 import { cn } from '@/lib/utils';
@@ -20,6 +20,7 @@ export function Header() {
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isHome = pathname === '/';
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -36,40 +37,57 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <nav className="container-wide flex h-16 items-center justify-between">
-        {/* Logo */}
+        {/* Logo - Hide on home page to avoid redundancy with Hero H1 */}
+        <div className={cn("transition-opacity duration-300", isHome ? "opacity-0 pointer-events-none" : "opacity-100")}>
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold tracking-tight">
-            Yang<span className="text-accent">Li</span>
+            <span className="text-lg font-bold tracking-tight text-foreground">
+              Yang Li
           </span>
         </Link>
+        </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center space-x-1 md:flex">
-          <Search />
-          <div className="mx-2 h-6 w-[1px] bg-border/40" />
+        <div className="hidden items-center gap-6 md:flex">
+          <div className="flex items-center gap-1">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={cn(
-                'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
+                  'rounded-md px-3 py-2 text-sm font-medium transition-colors',
                 pathname.startsWith(item.href)
-                  ? 'bg-accent/10 text-accent'
-                  : 'text-foreground/70 hover:bg-accent/5 hover:text-foreground'
+                    ? 'text-foreground bg-accent/5'
+                    : 'text-foreground/60 hover:text-foreground hover:bg-accent/5'
               )}
             >
               {item.name}
             </Link>
           ))}
+          </div>
+
+          <div className="h-4 w-[1px] bg-border/60" />
+
+          <div className="flex items-center gap-2">
+            <Search />
           
           {/* Theme Toggle */}
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="ml-4 rounded-lg p-2 text-foreground/70 hover:bg-accent/5 hover:text-foreground"
+              className="rounded-md p-2 text-foreground/60 hover:bg-accent/5 hover:text-foreground transition-colors"
             aria-label="Toggle theme"
           >
-            {resolvedTheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              {resolvedTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
+            {/* Language Toggle (Mock for now, ready for implementation) */}
+            <button
+              className="rounded-md p-2 text-foreground/60 hover:bg-accent/5 hover:text-foreground transition-colors"
+              aria-label="Switch language"
+              title="Switch Language (Coming Soon)"
+            >
+              <Languages size={18} />
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -108,21 +126,19 @@ export function Header() {
                 </Link>
               ))}
               
-              {/* Mobile Theme Toggle */}
+              <div className="mt-4 flex items-center gap-4 px-4 pt-4 border-t border-border/40">
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="flex w-full items-center rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:bg-accent/5"
+                  className="flex items-center gap-2 text-sm font-medium text-foreground/70"
               >
-                {resolvedTheme === 'dark' ? (
-                  <>
-                    <Sun size={20} className="mr-3" /> Light Mode
-                  </>
-                ) : (
-                  <>
-                    <Moon size={20} className="mr-3" /> Dark Mode
-                  </>
-                )}
+                  {resolvedTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                  <span>Theme</span>
+                </button>
+                <button className="flex items-center gap-2 text-sm font-medium text-foreground/70">
+                  <Languages size={18} />
+                  <span>中文</span>
               </button>
+              </div>
             </div>
           </motion.div>
         )}

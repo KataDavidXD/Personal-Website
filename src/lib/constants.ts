@@ -31,28 +31,25 @@ export const siteConfig = {
 
 export const pillars = [
   {
-    id: 'agent-infra',
+    id: 'agentgit',
     title: 'AgentGit',
-    description: 'The version control layer for LLM agents. Enabling State Commit, Rollback, and Branching for complex agentic workflows.',
+    summary: 'Version control for LLM agents',
+    description: 'State commit & revert, branching for parallel exploration, reduced runtime and token usage, and error recovery through checkpoint rollback.',
     href: 'https://github.com/KataDavidXD/Agent-Git',
-    icon: '🌳',
-    color: 'from-emerald-500 to-teal-500',
   },
   {
-    id: 'simulation',
+    id: 'wtb',
+    title: 'Workflow TestBench',
+    summary: 'Production reliability for agents',
+    description: 'Batch testing thousands of workflows in parallel, real-time monitoring, end-to-end production pipeline with quality gates, and expert knowledge extraction from agent traces.',
+    href: '/projects/wtb-engine',
+  },
+  {
+    id: 'mas',
     title: 'MAS Simulation',
-    description: 'Controlled simulation environments for studying agent interaction, uncertainty, and system-level emergent behavior.',
+    summary: 'High-performance multi-agent environments',
+    description: 'Agent-centric design with persona resolution, parallel physical & narrative processing, hybrid OO+ECS architecture, and data-oriented design for LLM integration.',
     href: '/projects/mas-sim',
-    icon: '🛰️',
-    color: 'from-purple-600 to-pink-600',
-  },
-  {
-    id: 'thinking',
-    title: 'Thinking',
-    description: 'Strategic reflections on the Agentic Era. Exploring the boundary between human and artificial intelligence.',
-    href: '/blog',
-    icon: '🧠',
-    color: 'from-blue-600 to-indigo-600',
   },
 ] as const;
 
