@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { Feed } from 'feed';
-import { allBlogPosts } from 'contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
 
 async function generateRss() {
   const baseUrl = siteConfig.url;
+  const generatedIndex = await import(path.join(process.cwd(), '.contentlayer', 'generated', 'index.mjs'));
+  const { allBlogPosts } = generatedIndex;
   
   const feed = new Feed({
     title: siteConfig.title,

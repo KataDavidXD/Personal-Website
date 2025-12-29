@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { allBlogPosts, allProjects, allPapers, allPages } from 'contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
 
 async function generateSitemap() {
   const baseUrl = siteConfig.url;
+  const generatedIndex = await import(path.join(process.cwd(), '.contentlayer', 'generated', 'index.mjs'));
+  const { allBlogPosts, allProjects, allPapers, allPages } = generatedIndex;
   
   const staticPaths = [
     '',
