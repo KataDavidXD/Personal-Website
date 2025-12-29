@@ -1,51 +1,67 @@
-import { writeFileSync } from 'fs';
+import fs from 'fs';
+import path from 'path';
 import { Feed } from 'feed';
+import { allBlogPosts } from '../.contentlayer/generated/index.mjs';
 import { siteConfig } from '../src/lib/constants';
-import { allBlogPosts } from 'contentlayer/generated';
 
-function generateRss() {
+async function generateRss() {
+  const baseUrl = siteConfig.url;
+  
   const feed = new Feed({
     title: siteConfig.title,
     description: siteConfig.description,
-    id: siteConfig.url,
-    link: siteConfig.url,
+    id: baseUrl,
+    link: baseUrl,
     language: 'en',
-    image: `${siteConfig.url}/og-default.png`,
-    favicon: `${siteConfig.url}/favicon.ico`,
+    favicon: `${baseUrl}/favicon.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${siteConfig.author.name}`,
+    updated: new Date(),
+    feedLinks: {
+      rss2: `${baseUrl}/rss.xml`,
+      json: `${baseUrl}/feed.json`,
+      atom: `${baseUrl}/atom.xml`,
+    },
     author: {
       name: siteConfig.author.name,
       email: siteConfig.author.email,
-      link: siteConfig.url,
+      link: siteConfig.links.twitter,
     },
   });
 
-  const sortedPosts = allBlogPosts
+  allBlogPosts
     .filter((post) => post.published)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  sortedPosts.forEach((post) => {
-    feed.addItem({
-      title: post.title,
-      id: `${siteConfig.url}${post.url}`,
-      link: `${siteConfig.url}${post.url}`,
-      description: post.description,
-      content: post.body.raw,
-      author: [
-        {
-          name: siteConfig.author.name,
-          email: siteConfig.author.email,
-          link: siteConfig.url,
-        },
-      ],
-      date: new Date(post.date),
-      category: [{ name: post.category }],
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .forEach((post) => {
+      feed.addItem({
+        title: post.title,
+        id: `${baseUrl}${post.url}`,
+        link: `${baseUrl}${post.url}`,
+        description: post.description,
+        content: post.body.raw,
+        author: [
+          {
+            name: siteConfig.author.name,
+            email: siteConfig.author.email,
+            link: siteConfig.links.twitter,
+          },
+        ],
+        date: new Date(post.date),
+      });
     });
-  });
 
-  writeFileSync('./public/rss.xml', feed.rss2());
-  console.log('✅ RSS feed generated at ./public/rss.xml');
+  const publicPath = path.join(process.cwd(), 'public');
+  if (!fs.existsSync(publicPath)) {
+    fs.mkdirSync(publicPath);
+  }
+
+  fs.writeFileSync(path.join(publicPath, 'rss.xml'), feed.rss2());
+  fs.writeFileSync(path.join(publicPath, 'atom.xml'), feed.atom1());
+  fs.writeFileSync(path.join(publicPath, 'feed.json'), feed.json1());
+  
+  console.log('✅ RSS feeds generated successfully!');
 }
 
-generateRss();
-
+generateRss().catch((err) => {
+  console.error('❌ Error generating RSS feed:', err);
+  process.exit(1);
+});

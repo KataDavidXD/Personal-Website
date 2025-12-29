@@ -1,11 +1,12 @@
-import { writeFileSync } from 'fs';
+import fs from 'fs';
+import path from 'path';
+import { allBlogPosts, allProjects, allPapers, allPages } from '../.contentlayer/generated/index.mjs';
 import { siteConfig } from '../src/lib/constants';
-import { allBlogPosts, allProjects, allPapers, allPages } from 'contentlayer/generated';
 
-function generateSitemap() {
+async function generateSitemap() {
   const baseUrl = siteConfig.url;
-
-  const staticPages = [
+  
+  const staticPaths = [
     '',
     '/blog',
     '/projects',
@@ -14,36 +15,41 @@ function generateSitemap() {
     '/now',
   ];
 
-  const blogPages = allBlogPosts
-    .filter((post) => post.published)
-    .map((post) => post.url);
+  const contentPaths = [
+    ...allBlogPosts.filter((p) => p.published).map((p) => p.url),
+    ...allProjects.map((p) => p.url),
+    ...allPapers.map((p) => p.url),
+    ...allPages.map((p) => p.url),
+  ];
 
-  const projectPages = allProjects.map((project) => project.url);
-  const paperPages = allPapers.map((paper) => paper.url);
-  
-  // Pages from content/pages (like about, now)
-  const contentPages = allPages.map((page) => `/${page.slug}`);
-
-  const allPagesUrls = [...new Set([...staticPages, ...blogPages, ...projectPages, ...paperPages, ...contentPages])];
+  const allPaths = [...new Set([...staticPaths, ...contentPaths])];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${allPagesUrls
-    .map((url) => {
+  ${allPaths
+    .map((route) => {
       return `
     <url>
-      <loc>${baseUrl}${url}</loc>
+      <loc>${baseUrl}${route}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>${url === '' ? '1.0' : '0.8'}</priority>
+      <priority>${route === '' ? '1.0' : '0.8'}</priority>
     </url>`;
     })
     .join('')}
 </urlset>`;
 
-  writeFileSync('./public/sitemap.xml', sitemap);
-  console.log('✅ Sitemap generated at ./public/sitemap.xml');
+  const publicPath = path.join(process.cwd(), 'public');
+  if (!fs.existsSync(publicPath)) {
+    fs.mkdirSync(publicPath);
+  }
+
+  fs.writeFileSync(path.join(publicPath, 'sitemap.xml'), sitemap);
+  
+  console.log('✅ Sitemap generated successfully!');
 }
 
-generateSitemap();
-
+generateSitemap().catch((err) => {
+  console.error('❌ Error generating sitemap:', err);
+  process.exit(1);
+});

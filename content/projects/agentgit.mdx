@@ -29,7 +29,7 @@ When building multi-agent systems, we often face challenges with:
 
 ## The Solution
 
-AgentGit treats agent state like code鈥攙ersioned, branched, and mergeable.
+AgentGit treats agent state like code—versioned, branched, and mergeable.
 
 ### Key Features
 
@@ -41,17 +41,17 @@ AgentGit treats agent state like code鈥攙ersioned, branched, and mergeable.
 ## Architecture
 
 ```
-鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-鈹?             AgentGit Core              鈹?
-鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹?
-鈹? 鈹?Memory  鈹? 鈹? State  鈹? 鈹? Event  鈹? 鈹?
-鈹? 鈹? Layer  鈹? 鈹? Store  鈹? 鈹? Log    鈹? 鈹?
-鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹?
-鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-鈹?             Storage Layer              鈹?
-鈹?    (Redis / PostgreSQL / S3)           鈹?
-鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+┌─────────────────────────────────────────┐
+│              AgentGit Core              │
+├─────────────────────────────────────────┤
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  │
+│  │ Memory  │  │  State  │  │  Event  │  │
+│  │  Layer  │  │  Store  │  │  Log    │  │
+│  └─────────┘  └─────────┘  └─────────┘  │
+├─────────────────────────────────────────┤
+│              Storage Layer              │
+│     (Redis / PostgreSQL / S3)           │
+└─────────────────────────────────────────┘
 ```
 
 ## Quick Start

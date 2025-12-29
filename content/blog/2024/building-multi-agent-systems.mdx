@@ -17,7 +17,7 @@ Multi-agent systems (MAS) are becoming increasingly important as we push the bou
 
 ## The Problem with Single Agents
 
-Traditional LLM applications often follow a simple pattern: prompt 鈫?completion 鈫?response. This works well for straightforward tasks but breaks down when facing:
+Traditional LLM applications often follow a simple pattern: prompt → completion → response. This works well for straightforward tasks but breaks down when facing:
 
 - **Complex reasoning** requiring multiple perspectives
 - **Long-running tasks** that need coordination
@@ -29,16 +29,16 @@ Traditional LLM applications often follow a simple pattern: prompt 鈫?completio
 ### 1. Hierarchical Agents
 
 ```
-         鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-         鈹?Orchestrator 鈹?
-         鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹?
-                鈹?
-    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-    鈹?          鈹?          鈹?
-    鈻?          鈻?          鈻?
-鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹?
-鈹侫gent 1鈹? 鈹侫gent 2鈹? 鈹侫gent 3鈹?
-鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹? 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹?
+          ┌─────────────┐
+          │ Orchestrator │
+          └──────┬──────┘
+                 │
+     ┌───────────┼───────────┐
+     │           │           │
+     ▼           ▼           ▼
+ ┌───────┐  ┌───────┐  ┌───────┐
+ │Agent 1│  │Agent 2│  │Agent 3│
+ └───────┘  └───────┘  └───────┘
 ```
 
 A central orchestrator delegates tasks to specialized agents. Good for well-defined workflows.
