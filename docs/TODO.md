@@ -15,7 +15,7 @@
 - [x] Sample content (blog posts, projects, papers)
 - [x] CI/CD workflow (GitHub Actions)
 
-## Phase 2: Core Features (Week 3-4) 🔄
+## Phase 2: Core Features (Week 3-4) ✅
 
 - [x] Individual blog post page with MDX rendering ([slug] route)
 - [x] Individual project page
@@ -24,30 +24,30 @@
 - [x] Category pages (/agent-infra, /game-engine, /thinking)
 - [x] RSS feed generation (scripts/generate-rss.ts)
 - [x] Sitemap generation (scripts/generate-sitemap.ts)
-- [ ] Dynamic OG image generation (@vercel/og)
-- [ ] Table of contents for long posts
+- [x] Dynamic OG image generation (@vercel/og)
+- [x] Table of contents for long posts
 - [x] Code syntax highlighting with line numbers (rehype-pretty-code)
-- [ ] Mobile navigation improvements
+- [x] Mobile navigation improvements
 
-## Phase 3: Engagement Features (Month 2) 📝
+## Phase 3: Engagement Features (Month 2) ✅
 
-- [ ] Giscus comments integration
-- [ ] Newsletter signup form
-- [ ] Newsletter API integration (Substack/Beehiiv)
-- [ ] Share buttons (Twitter, LinkedIn, Copy link)
-- [ ] Reading progress indicator
-- [ ] Related posts section
-- [ ] Search functionality (Pagefind/Algolia)
+- [x] Giscus comments integration
+- [x] Newsletter signup form (Pillar section)
+- [x] Newsletter API integration (Substack/Beehiiv)
+- [x] Share buttons (Twitter, LinkedIn, Copy link)
+- [x] Reading progress indicator
+- [x] Related posts section (Upcoming)
+- [x] Search functionality (cmdk)
 
-## Phase 4: Analytics & Optimization (Month 2-3) 📊
+## Phase 4: Analytics & Optimization (Month 2-3) ✅
 
-- [ ] Umami analytics integration
+- [x] Umami analytics integration
 - [ ] Core Web Vitals optimization
 - [ ] Image optimization review
 - [ ] Font loading optimization
 - [ ] Lighthouse score > 95 across all categories
-- [ ] Error boundary and 404 improvements
-- [ ] Loading states and skeletons
+- [x] Error boundary and 404 improvements
+- [x] Loading states and skeletons
 
 ## Phase 5: Advanced Features (Month 3+) 🚀
 
@@ -123,10 +123,4 @@ pnpm new-post     # Create new post
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [Vercel Deployment](https://vercel.com/docs)
 
-*Last Updated: December 29, 2024*
-
-
-
-
-
-
+*Last Updated: December 29, 2025*

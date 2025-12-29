@@ -20,7 +20,7 @@ export const BlogPost = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' }, default: [] },
     category: { 
       type: 'enum', 
-      options: ['agent-infra', 'game-engine', 'thinking'],
+      options: ['agent-infra', 'simulation', 'thinking'],
       required: true 
     },
     language: { 

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Header } from '@/components/layout/Header';
@@ -18,33 +19,33 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'Your Name - Research & Engineering',
-    template: '%s | Your Name',
+    default: 'Yang Li - Agent Reliability & Infrastructure Architect',
+    template: '%s | Yang Li',
   },
-  description: 'Personal website for research, engineering projects, and thought leadership in Agent Infrastructure, Game Engines, and Philosophy.',
-  keywords: ['research', 'engineering', 'agent infrastructure', 'game engine', 'AI', 'software'],
-  authors: [{ name: 'Your Name' }],
-  creator: 'Your Name',
+  description: 'Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.',
+  keywords: ['research', 'engineering', 'agent infrastructure', 'AI', 'reliability'],
+  authors: [{ name: 'Yang Li' }],
+  creator: 'Yang Li',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'Your Name',
-    title: 'Your Name - Research & Engineering',
-    description: 'Personal website for research, engineering projects, and thought leadership.',
+    siteName: 'Yang Li',
+    title: 'Yang Li - Agent Reliability & Infrastructure Architect',
+    description: 'Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.',
     images: [
       {
         url: '/og-default.png',
         width: 1200,
         height: 630,
-        alt: 'Your Name',
+        alt: 'Yang Li',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Your Name - Research & Engineering',
-    description: 'Personal website for research, engineering projects, and thought leadership.',
+    title: 'Yang Li - Agent Reliability & Infrastructure Architect',
+    description: 'Designing system-level infrastructure for reliable, auditable, and testable multi-agent systems.',
     creator: '@yourhandle',
     images: ['/og-default.png'],
   },
@@ -86,6 +87,13 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        {process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_SCRIPT_URL && (
+          <Script
+            src={process.env.UMAMI_SCRIPT_URL}
+            data-website-id={process.env.UMAMI_WEBSITE_ID}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );

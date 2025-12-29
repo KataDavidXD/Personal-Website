@@ -25,7 +25,7 @@ export function Footer() {
           {/* Brand */}
           <div className="text-center md:text-left">
             <Link href="/" className="text-xl font-bold tracking-tight">
-              Your<span className="text-accent">Name</span>
+              Yang<span className="text-accent">Li</span>
             </Link>
             <p className="mt-2 text-sm text-foreground/60">
               Research · Engineering · Thinking
@@ -65,7 +65,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-border/40 pt-8 text-center">
           <p className="text-sm text-foreground/50">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} Yang Li. All rights reserved.
           </p>
         </div>
       </div>

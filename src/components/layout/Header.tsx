@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/providers/ThemeProvider';
+import { Search } from '@/components/layout/Search';
 import { cn } from '@/lib/utils';
 
 const navigation = [
@@ -20,18 +21,32 @@ export function Header() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <nav className="container-wide flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-xl font-bold tracking-tight">
-            Your<span className="text-accent">Name</span>
+            Yang<span className="text-accent">Li</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center space-x-1 md:flex">
+          <Search />
+          <div className="mx-2 h-6 w-[1px] bg-border/40" />
           {navigation.map((item) => (
             <Link
               key={item.name}

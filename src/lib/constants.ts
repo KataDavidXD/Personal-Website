@@ -15,11 +15,23 @@ export const siteConfig = {
     twitter: 'https://twitter.com/yourhandle',
     linkedin: 'https://linkedin.com/in/yangli9919',
   },
+  giscus: {
+    repo: 'KataDavidXD/Personal-Website', // Replace with your actual repo
+    repoId: 'R_kgDOQwhAZw', // Replace with your actual repo ID
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOQwhAZ84C0Wpr', // Replace with your actual category ID
+    mapping: 'pathname',
+    reactionsEnabled: '1',
+    emitMetadata: '0',
+    inputPosition: 'top',
+    theme: 'preferred_color_scheme',
+    lang: 'zh-CN',
+  },
 } as const;
 
 export const pillars = [
   {
-    id: 'agent-git',
+    id: 'agent-infra',
     title: 'AgentGit',
     description: 'The version control layer for LLM agents. Enabling State Commit, Rollback, and Branching for complex agentic workflows.',
     href: 'https://github.com/KataDavidXD/Agent-Git',
@@ -27,20 +39,20 @@ export const pillars = [
     color: 'from-emerald-500 to-teal-500',
   },
   {
-    id: 'wtb',
-    title: 'WTB (Workflow Test Bench)',
-    description: 'Failure-mode-driven evaluation and regression testing. Partnered with leading ToB HQs to ensure production reliability.',
-    href: '/projects/wtb',
-    icon: '🧪',
-    color: 'from-blue-600 to-indigo-600',
-  },
-  {
-    id: 'mas-sim',
+    id: 'simulation',
     title: 'MAS Simulation',
     description: 'Controlled simulation environments for studying agent interaction, uncertainty, and system-level emergent behavior.',
     href: '/projects/mas-sim',
     icon: '🛰️',
     color: 'from-purple-600 to-pink-600',
+  },
+  {
+    id: 'thinking',
+    title: 'Thinking',
+    description: 'Strategic reflections on the Agentic Era. Exploring the boundary between human and artificial intelligence.',
+    href: '/blog',
+    icon: '🧠',
+    color: 'from-blue-600 to-indigo-600',
   },
 ] as const;
 
