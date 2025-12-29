@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs';
 import { Feed } from 'feed';
-import { allBlogPosts } from '../.contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
+import { allBlogPosts } from 'contentlayer/generated';
 
 function generateRss() {
   const feed = new Feed({

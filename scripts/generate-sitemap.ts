@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
-import { allBlogPosts, allProjects, allPapers, allPages } from '../.contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
+import { allBlogPosts, allProjects, allPapers, allPages } from 'contentlayer/generated';
 
 function generateSitemap() {
   const baseUrl = siteConfig.url;
