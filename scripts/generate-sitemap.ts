@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { allBlogPosts, allProjects, allPapers, allPages } from '../.contentlayer/generated/index.mjs';
+import { allBlogPosts, allProjects, allPapers, allPages } from 'contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
 
 async function generateSitemap() {

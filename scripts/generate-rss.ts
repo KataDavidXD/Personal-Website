@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Feed } from 'feed';
-import { allBlogPosts } from '../.contentlayer/generated/index.mjs';
+import { allBlogPosts } from 'contentlayer/generated';
 import { siteConfig } from '../src/lib/constants';
 
 async function generateRss() {
